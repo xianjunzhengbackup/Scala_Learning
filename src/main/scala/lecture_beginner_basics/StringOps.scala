@@ -35,7 +35,7 @@ object StringOps extends App {
   println(f"$name can eat $speedInt%5d burgers per minute")
 
   //raw-interpolator
-  //在raw插值中，\n不起作用
+  //在raw插值中，\n不起作用,但是弄成变量就有点作用。
   println(raw"This is a \n newline")
   println("This is a \n newline")
   val escaped="This is a \n newline"
