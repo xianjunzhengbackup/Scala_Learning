@@ -1,6 +1,17 @@
 package lectures.beginner.part2.oop
 
 object Generics extends App{
+  /*
+  逆变和协变，记住以下这点就好。函数的参数用逆变，返回类型用协变。搞不定的用新的类型参数。
+  Functions must be contravariant in their argument types and covariant in their result types
+trait Function1[-T, +U] {
+def apply(x: T): U
+} // Variance check is OK because T is contravariant and U is covariant
+class Array[+T] {
+def update(x: T)
+} // variance checks fails
+   */
+
   //这样定义出来的class就叫Generics Class
   class MyList[A] {
     //use the type A
