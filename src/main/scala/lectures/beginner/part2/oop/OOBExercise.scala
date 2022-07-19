@@ -63,7 +63,7 @@ object OOBExercise extends App {
   }
 
   //Nothing is substitute of any type
-  object emptyList extends MyList [Nothing]{
+  case object emptyList extends MyList [Nothing]{
     def head: Nothing = throw new NoSuchElementException
     def tail : MyList [Nothing] = throw new NoSuchElementException
     def isEmpty:Boolean = true
@@ -77,7 +77,7 @@ object OOBExercise extends App {
     //[1,2,3].flatMap(n => [n,n+1]) => [1,2,2,3,3,4]
     override def flatMap[B](transformer: MyTransformer[Nothing, MyList[B]]): MyList[B] = this
   }
-  class List[+A](val h:A,val t:MyList[A]) extends MyList[A]{
+  case class List[+A](val h:A,val t:MyList[A]) extends MyList[A]{
     def head:A = h
     def tail:MyList[A] = t
     def isEmpty:Boolean = false
@@ -111,7 +111,8 @@ object OOBExercise extends App {
   }
 
 
-  val list=new List("1",new List("2",new List("3",emptyList)))
+//  val list=new List("1",new List("2",new List("3",emptyList)))
+  val list:MyList[String]=List("1",List("2",List("3",emptyList)))
   println(list.toString)
   val listTransformed=list.map[Int](transformer)
   println(listTransformed)
